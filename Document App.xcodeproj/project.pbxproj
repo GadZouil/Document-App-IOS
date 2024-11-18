@@ -19,6 +19,7 @@
 		46566D7B2CEB4D5B0037F4BA /* rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D742CEB4D5B0037F4BA /* rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg */; };
 		46566D7C2CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D752CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg */; };
 		46566D7F2CEB6A550037F4BA /* img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D7E2CEB6A550037F4BA /* img.jpg */; };
+		46566D812CEB6BEF0037F4BA /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46566D802CEB6BEF0037F4BA /* DocumentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		46566D742CEB4D5B0037F4BA /* rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg"; sourceTree = "<group>"; };
 		46566D752CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 49736d018764707dbc02c34ceb1c72b6.jpg; sourceTree = "<group>"; };
 		46566D7E2CEB6A550037F4BA /* img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpg; sourceTree = "<group>"; };
+		46566D802CEB6BEF0037F4BA /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				46566D612CEB2BAB0037F4BA /* Assets.xcassets */,
 				46566D632CEB2BAB0037F4BA /* LaunchScreen.storyboard */,
 				46566D662CEB2BAB0037F4BA /* Info.plist */,
+				46566D802CEB6BEF0037F4BA /* DocumentViewController.swift */,
 			);
 			path = "Document App";
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46566D812CEB6BEF0037F4BA /* DocumentViewController.swift in Sources */,
 				46566D5D2CEB2BAA0037F4BA /* ViewController.swift in Sources */,
 				46566D592CEB2BAA0037F4BA /* AppDelegate.swift in Sources */,
 				46566D6F2CEB355A0037F4BA /* DocumentTableViewController.swift in Sources */,

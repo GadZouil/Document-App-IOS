@@ -74,15 +74,15 @@
             </objects>
             <point key="canvasLocation" x="-1961.0687022900763" y="-789.43661971830988"/>
         </scene>
-        <!--View Controller-->
+        <!--Document View Controller-->
         <scene sceneID="chJ-mq-MDt">
             <objects>
-                <viewController id="med-CS-1aT" sceneMemberID="viewController">
+                <viewController id="med-CS-1aT" customClass="DocumentViewController" customModule="Document_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMK-kl-pPJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZA3-XZ-QAG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="898b29a34ea47362b0d3a1b260d9725b.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZA3-XZ-QAG">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                             </imageView>
                         </subviews>
@@ -96,6 +96,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="juG-8X-dc4"/>
+                    <connections>
+                        <outlet property="imageView" destination="ZA3-XZ-QAG" id="rNR-ri-8W6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkS-Tf-1gA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,7 +106,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="img.jpg" width="1880" height="1228"/>
+        <image name="898b29a34ea47362b0d3a1b260d9725b.jpg" width="500" height="749"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
