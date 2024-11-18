@@ -44,13 +44,21 @@ extension DocumentTableViewController: UIDocumentPickerDelegate {
 class DocumentTableViewController: UITableViewController {
 
     var documents: [DocumentFile] = []
-    
+    var bundleFiles: [DocumentFile] = []  // Fichiers dans le bundle
+    var importedFiles: [DocumentFile] = []  // Fichiers importés
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
         self.title = "Liste de Documents"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDocument))
-        documents = listFileInBundle() + listFilesInDocumentsDirectory()
+//        documents = listFileInBundle() + listFilesInDocumentsDirectory()
+        
+        // Récupérer les fichiers dans le bundle
+        bundleFiles = listFileInBundle()
+        
+        // Récupérer les fichiers dans le dossier Documents
+        importedFiles = listFilesInDocumentsDirectory()
         
         // Charge les fichiers du bundle
         documents = listFileInBundle()
@@ -67,13 +75,16 @@ class DocumentTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2 // Deux sections : Importés et Bundle
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return documents.count
-    }
+        if section == 0 {
+            return importedFiles.count // Section Importés
+        } else {
+            return bundleFiles.count // Section Bundle
+        }    }
     
     @objc func addDocument() {
         let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.item], asCopy: true)
@@ -111,10 +122,16 @@ class DocumentTableViewController: UITableViewController {
         return documentList
     }
 
+//    func reloadDocumentsList() {
+//        documents = listFileInBundle() + listFilesInDocumentsDirectory()
+//        tableView.reloadData()
+//    }
+    
     func reloadDocumentsList() {
-        documents = listFileInBundle() + listFilesInDocumentsDirectory()
+        importedFiles = listFilesInDocumentsDirectory()
         tableView.reloadData()
     }
+
 
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        // Défile une cellule réutilisable
@@ -130,18 +147,30 @@ class DocumentTableViewController: UITableViewController {
 //        
 //        return cell
 //    }
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentCell", for: indexPath)
+//        let document = documents[indexPath.row]
+//        cell.textLabel?.text = document.title
+//        cell.detailTextLabel?.text = "Taille : \(document.size.formattedSize()) - Type : \(document.type)"
+//        
+//        // Ajoute un accessory type de disclosure
+//        cell.accessoryType = .disclosureIndicator
+//        
+//        return cell
+//    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentCell", for: indexPath)
-        let document = documents[indexPath.row]
+        
+        // Choisissez la liste en fonction de la section
+        let document = indexPath.section == 0 ? importedFiles[indexPath.row] : bundleFiles[indexPath.row]
+        
+        // Configurez la cellule
         cell.textLabel?.text = document.title
         cell.detailTextLabel?.text = "Taille : \(document.size.formattedSize()) - Type : \(document.type)"
-        
-        // Ajoute un accessory type de disclosure
-        cell.accessoryType = .disclosureIndicator
+        cell.imageView?.image = UIImage(systemName: "doc") // Icône générique
         
         return cell
     }
-
 
     /*
     // Override to support conditional editing of the table view.
@@ -210,7 +239,14 @@ class DocumentTableViewController: UITableViewController {
 //            }
 //        }
 //    }
-    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Importés"
+        } else {
+            return "Bundle"
+        }
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Récupère le document sélectionné
         let file = documents[indexPath.row]
