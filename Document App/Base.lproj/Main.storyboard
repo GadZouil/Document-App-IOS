@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,9 +39,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="med-CS-1aT" kind="show" identifier="ShowDocumentSegue" id="1FU-VB-wXp"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -74,39 +70,8 @@
             </objects>
             <point key="canvasLocation" x="-1961.0687022900763" y="-789.43661971830988"/>
         </scene>
-        <!--Document View Controller-->
-        <scene sceneID="chJ-mq-MDt">
-            <objects>
-                <viewController id="med-CS-1aT" customClass="DocumentViewController" customModule="Document_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OMK-kl-pPJ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="898b29a34ea47362b0d3a1b260d9725b.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZA3-XZ-QAG">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="2Sj-gF-twl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="ZA3-XZ-QAG" firstAttribute="centerX" secondItem="OMK-kl-pPJ" secondAttribute="centerX" id="0aP-n6-bwC"/>
-                            <constraint firstItem="ZA3-XZ-QAG" firstAttribute="bottom" secondItem="2Sj-gF-twl" secondAttribute="bottom" id="bGz-Tx-l0a"/>
-                            <constraint firstItem="ZA3-XZ-QAG" firstAttribute="top" secondItem="2Sj-gF-twl" secondAttribute="top" id="m6R-km-ch3"/>
-                            <constraint firstItem="ZA3-XZ-QAG" firstAttribute="leading" secondItem="2Sj-gF-twl" secondAttribute="leading" id="v4H-ar-pK6"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="juG-8X-dc4"/>
-                    <connections>
-                        <outlet property="imageView" destination="ZA3-XZ-QAG" id="rNR-ri-8W6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkS-Tf-1gA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-113.74045801526717" y="-789.43661971830988"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="898b29a34ea47362b0d3a1b260d9725b.jpg" width="500" height="749"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

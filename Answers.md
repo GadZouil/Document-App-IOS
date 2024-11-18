@@ -53,7 +53,7 @@ dequeueReusableCell améliore les performances en réutilisant les cellules déj
 
 ## 4- Exercice 1
 
-### Ce que nous venons de faire et le rôle du NavigationController
+### Ce que nous venons de faire et le rôle du NavigationController
 En ajoutant un NavigationController, nous avons structuré notre application pour gérer la navigation entre plusieurs écrans (ou pages). Le NavigationController agit comme un conteneur qui organise et présente les ViewControllers dans une hiérarchie (appelée pile de navigation). Chaque écran est poussé ou retiré de cette pile lorsque l'utilisateur navigue dans l'application, ce qui permet une navigation fluide et cohérente. Cela inclut la gestion automatique de la NavigationBar, des transitions entre les écrans, et parfois d'une barre d'outils.
 
 ### Différence entre la NavigationBar et le NavigationController
@@ -71,7 +71,10 @@ Un Segue est un mécanisme utilisé dans les Storyboards d'iOS pour gérer la tr
 Une constraint est une règle qui détermine la position, la taille ou la relation d’un élément d’interface utilisateur par rapport à d’autres éléments ou à son conteneur. Elle sert à organiser l’affichage de manière précise et à garantir une mise en page cohérente, quel que soit l’appareil ou l’orientation. Les constraints sont utilisées par AutoLayout, le système d’iOS qui calcule automatiquement les positions et dimensions des composants pour rendre l’interface responsive et adaptée à différentes tailles d’écran.
 
 
+## 9- Questions
 
+### Pourquoi changer l’accessory en disclosureIndicator ?
+Le disclosureIndicator est un petit chevron affiché à droite des cellules, indiquant à l’utilisateur qu’en sélectionnant une cellule, il accédera à une vue de détail. Cela améliore l’expérience utilisateur en respectant les directives d'Apple en matière de design (Human Interface Guidelines). Il est particulièrement pertinent pour des actions de navigation, comme ici où l’on ouvre un document. Cela rend l'interface plus intuitive et cohérente avec les standards d’iOS.
 
 
 

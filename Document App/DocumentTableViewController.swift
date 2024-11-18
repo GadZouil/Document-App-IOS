@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import QuickLook
 
 extension Int {
     func formattedSize() -> String {
@@ -16,6 +17,21 @@ extension Int {
         return formatter.string(fromByteCount: Int64(self)) // Convertit en format lisible
     }
 }
+
+extension DocumentTableViewController: QLPreviewControllerDataSource {
+    
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+        return 1 // Un seul fichier à prévisualiser
+    }
+    
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+        // Retourne l'URL du fichier sélectionné
+        let selectedIndexPath = tableView.indexPathForSelectedRow!
+        let selectedDocument = documents[selectedIndexPath.row]
+        return selectedDocument.url as QLPreviewItem
+    }
+}
+
 
 class DocumentTableViewController: UITableViewController {
 
@@ -51,21 +67,32 @@ class DocumentTableViewController: UITableViewController {
         return documents.count
     }
 
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        // Défile une cellule réutilisable
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentCell", for: indexPath)
+//        let document = documents[indexPath.row]
+//        
+//        // Récupère le document correspondant
+////        let document = DocumentFile.testDocumentFiles[indexPath.row]
+//        
+//        // Configure la cellule
+//        cell.textLabel?.text = document.title
+//        cell.detailTextLabel?.text = "Taille : \(document.size.formattedSize()) - Type : \(document.type)"
+//        
+//        return cell
+//    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Défile une cellule réutilisable
         let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentCell", for: indexPath)
         let document = documents[indexPath.row]
-        
-        // Récupère le document correspondant
-//        let document = DocumentFile.testDocumentFiles[indexPath.row]
-        
-        // Configure la cellule
         cell.textLabel?.text = document.title
         cell.detailTextLabel?.text = "Taille : \(document.size.formattedSize()) - Type : \(document.type)"
         
+        // Ajoute un accessory type de disclosure
+        cell.accessoryType = .disclosureIndicator
+        
         return cell
     }
-    
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -114,25 +141,44 @@ class DocumentTableViewController: UITableViewController {
 
     
     // Dans DocumentTableViewController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // 1. Récuperer l'index de la ligne sélectionnée
-        if let indexPath = tableView.indexPathForSelectedRow {
-            
-            // 2. Récuperer le document correspondant à l'index
-            let selectedDocument = documents[indexPath.row]
-            
-            // 3. Cibler l'instance de DocumentViewController via le segue.destination
-            if segue.identifier == "ShowDocumentSegue" { // Vérifier l'identifiant du segue
-                let destinationVC = segue.destination
-                
-                // 4. Caster le segue.destination en DocumentViewController
-                if let documentVC = destinationVC as? DocumentViewController {
-                    
-                    // 5. Remplir la variable imageName de l'instance de DocumentViewController avec le nom de l'image du document
-                    documentVC.imageName = selectedDocument.imageName
-                }
-            }
-        }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // 1. Récuperer l'index de la ligne sélectionnée
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            
+//            // 2. Récuperer le document correspondant à l'index
+//            let selectedDocument = documents[indexPath.row]
+//            
+//            // 3. Cibler l'instance de DocumentViewController via le segue.destination
+//            if segue.identifier == "ShowDocumentSegue" { // Vérifier l'identifiant du segue
+//                let destinationVC = segue.destination
+//                
+//                // 4. Caster le segue.destination en DocumentViewController
+//                if let documentVC = destinationVC as? DocumentViewController {
+//                    
+//                    // 5. Remplir la variable imageName de l'instance de DocumentViewController avec le nom de l'image du document
+//                    documentVC.imageName = selectedDocument.imageName
+//                }
+//            }
+//        }
+//    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Récupère le document sélectionné
+        let file = documents[indexPath.row]
+        
+        // Instancie et configure le QLPreviewController
+        instantiateQLPreviewController(withUrl: file.url)
+    }
+
+    func instantiateQLPreviewController(withUrl url: URL) {
+        // Crée une instance de QLPreviewController
+        let previewController = QLPreviewController()
+        
+        // Définit le dataSource pour fournir le fichier à afficher
+        previewController.dataSource = self
+        
+        // Présente le QLPreviewController
+        navigationController?.pushViewController(previewController, animated: true)
     }
 
     
