@@ -19,9 +19,19 @@ extension Int {
 
 class DocumentTableViewController: UITableViewController {
 
+    var documents: [DocumentFile] = []
+    
     override func viewDidLoad() {
+//        super.viewDidLoad()
+        
+        
         super.viewDidLoad()
-
+        self.title = "Documents"
+        
+        // Charge les fichiers du bundle
+        documents = listFileInBundle()
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -38,15 +48,16 @@ class DocumentTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return DocumentFile.testDocumentFiles.count
+        return documents.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Défile une cellule réutilisable
         let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentCell", for: indexPath)
+        let document = documents[indexPath.row]
         
         // Récupère le document correspondant
-        let document = DocumentFile.testDocumentFiles[indexPath.row]
+//        let document = DocumentFile.testDocumentFiles[indexPath.row]
         
         // Configure la cellule
         cell.textLabel?.text = document.title
@@ -121,6 +132,47 @@ class DocumentTableViewController: UITableViewController {
             DocumentFile(title: "Document 9", size: 900000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
             DocumentFile(title: "Document 10", size: 1000000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain")
         ]
+    }
+
+    // Fonction pour lister les fichiers dans le bundle principal
+    func listFileInBundle() -> [DocumentFile] {
+        
+        // Récupère une instance de FileManager pour interagir avec le système de fichiers
+        let fm = FileManager.default
+        
+        // Récupère le chemin vers le dossier principal des ressources du bundle
+        let path = Bundle.main.resourcePath!
+        
+        // Liste tous les fichiers et dossiers présents dans le chemin spécifié
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        
+        // Initialise un tableau vide pour stocker les fichiers sous forme de DocumentFile
+        var documentListBundle = [DocumentFile]()
+        
+        // Parcourt tous les éléments trouvés dans le chemin
+        for item in items {
+            // Exclut les fichiers inutiles (.DS_Store) et sélectionne uniquement les fichiers ayant l'extension .jpg
+            if !item.hasSuffix("DS_Store") && item.hasSuffix(".jpg") {
+                
+                // Crée une URL pour accéder au fichier actuel
+                let currentUrl = URL(fileURLWithPath: path + "/" + item)
+                
+                // Récupère des informations sur le fichier, comme son nom, sa taille et son type
+                let resourcesValues = try! currentUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
+                
+                // Ajoute le fichier à la liste en créant un objet DocumentFile
+                documentListBundle.append(DocumentFile(
+                    title: resourcesValues.name!,                    // Nom du fichier
+                    size: resourcesValues.fileSize ?? 0,            // Taille en octets (par défaut 0 si introuvable)
+                    imageName: item,                                // Nom de l'image
+                    url: currentUrl,                                // URL complète du fichier
+                    type: resourcesValues.contentType!.description  // Type du fichier (ex. : "image/jpeg")
+                ))
+            }
+        }
+        
+        // Retourne la liste de fichiers sous forme de tableau de DocumentFile
+        return documentListBundle
     }
 
 

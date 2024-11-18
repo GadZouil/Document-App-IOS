@@ -14,6 +14,13 @@
 		46566D622CEB2BAB0037F4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46566D612CEB2BAB0037F4BA /* Assets.xcassets */; };
 		46566D652CEB2BAB0037F4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46566D632CEB2BAB0037F4BA /* LaunchScreen.storyboard */; };
 		46566D6F2CEB355A0037F4BA /* DocumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46566D6E2CEB355A0037F4BA /* DocumentTableViewController.swift */; };
+		46566D772CEB4D5B0037F4BA /* photo-aleatoire-nature-fond-ecran-hd-8k4k_915071-66554.jpg.avif in Resources */ = {isa = PBXBuildFile; fileRef = 46566D702CEB4D5A0037F4BA /* photo-aleatoire-nature-fond-ecran-hd-8k4k_915071-66554.jpg.avif */; };
+		46566D782CEB4D5B0037F4BA /* e339cb82664962b3eba958d299700976.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D712CEB4D5B0037F4BA /* e339cb82664962b3eba958d299700976.jpg */; };
+		46566D792CEB4D5B0037F4BA /* 898b29a34ea47362b0d3a1b260d9725b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D722CEB4D5B0037F4BA /* 898b29a34ea47362b0d3a1b260d9725b.jpg */; };
+		46566D7A2CEB4D5B0037F4BA /* photos-at-random-1000224_1280 in Resources */ = {isa = PBXBuildFile; fileRef = 46566D732CEB4D5B0037F4BA /* photos-at-random-1000224_1280 */; };
+		46566D7B2CEB4D5B0037F4BA /* rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D742CEB4D5B0037F4BA /* rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg */; };
+		46566D7C2CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D752CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg */; };
+		46566D7D2CEB4D5B0037F4BA /* 5ea5b6826a51a437070eb1216a8d68be.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D762CEB4D5B0037F4BA /* 5ea5b6826a51a437070eb1216a8d68be.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +35,13 @@
 		46566D6C2CEB2D400037F4BA /* Answers.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Answers.md; sourceTree = "<group>"; };
 		46566D6D2CEB2D9F0037F4BA /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		46566D6E2CEB355A0037F4BA /* DocumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewController.swift; sourceTree = "<group>"; };
+		46566D702CEB4D5A0037F4BA /* photo-aleatoire-nature-fond-ecran-hd-8k4k_915071-66554.jpg.avif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "photo-aleatoire-nature-fond-ecran-hd-8k4k_915071-66554.jpg.avif"; sourceTree = "<group>"; };
+		46566D712CEB4D5B0037F4BA /* e339cb82664962b3eba958d299700976.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = e339cb82664962b3eba958d299700976.jpg; sourceTree = "<group>"; };
+		46566D722CEB4D5B0037F4BA /* 898b29a34ea47362b0d3a1b260d9725b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 898b29a34ea47362b0d3a1b260d9725b.jpg; sourceTree = "<group>"; };
+		46566D732CEB4D5B0037F4BA /* photos-at-random-1000224_1280 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "photos-at-random-1000224_1280"; sourceTree = "<group>"; };
+		46566D742CEB4D5B0037F4BA /* rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg"; sourceTree = "<group>"; };
+		46566D752CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 49736d018764707dbc02c34ceb1c72b6.jpg; sourceTree = "<group>"; };
+		46566D762CEB4D5B0037F4BA /* 5ea5b6826a51a437070eb1216a8d68be.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5ea5b6826a51a437070eb1216a8d68be.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,13 @@
 		46566D572CEB2BAA0037F4BA /* Document App */ = {
 			isa = PBXGroup;
 			children = (
+				46566D762CEB4D5B0037F4BA /* 5ea5b6826a51a437070eb1216a8d68be.jpg */,
+				46566D722CEB4D5B0037F4BA /* 898b29a34ea47362b0d3a1b260d9725b.jpg */,
+				46566D752CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg */,
+				46566D712CEB4D5B0037F4BA /* e339cb82664962b3eba958d299700976.jpg */,
+				46566D702CEB4D5A0037F4BA /* photo-aleatoire-nature-fond-ecran-hd-8k4k_915071-66554.jpg.avif */,
+				46566D732CEB4D5B0037F4BA /* photos-at-random-1000224_1280 */,
+				46566D742CEB4D5B0037F4BA /* rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg */,
 				46566D582CEB2BAA0037F4BA /* AppDelegate.swift */,
 				46566D5A2CEB2BAA0037F4BA /* SceneDelegate.swift */,
 				46566D5C2CEB2BAA0037F4BA /* ViewController.swift */,
@@ -133,8 +154,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				46566D652CEB2BAB0037F4BA /* LaunchScreen.storyboard in Resources */,
+				46566D7C2CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg in Resources */,
 				46566D622CEB2BAB0037F4BA /* Assets.xcassets in Resources */,
+				46566D772CEB4D5B0037F4BA /* photo-aleatoire-nature-fond-ecran-hd-8k4k_915071-66554.jpg.avif in Resources */,
+				46566D792CEB4D5B0037F4BA /* 898b29a34ea47362b0d3a1b260d9725b.jpg in Resources */,
+				46566D782CEB4D5B0037F4BA /* e339cb82664962b3eba958d299700976.jpg in Resources */,
 				46566D602CEB2BAA0037F4BA /* Main.storyboard in Resources */,
+				46566D7A2CEB4D5B0037F4BA /* photos-at-random-1000224_1280 in Resources */,
+				46566D7B2CEB4D5B0037F4BA /* rainforest_waterfall-scenery_HD_Wallpaper_1366x768.jpg in Resources */,
+				46566D7D2CEB4D5B0037F4BA /* 5ea5b6826a51a437070eb1216a8d68be.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
