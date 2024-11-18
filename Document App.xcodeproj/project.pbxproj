@@ -13,6 +13,7 @@
 		46566D602CEB2BAA0037F4BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46566D5E2CEB2BAA0037F4BA /* Main.storyboard */; };
 		46566D622CEB2BAB0037F4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46566D612CEB2BAB0037F4BA /* Assets.xcassets */; };
 		46566D652CEB2BAB0037F4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46566D632CEB2BAB0037F4BA /* LaunchScreen.storyboard */; };
+		46566D6F2CEB355A0037F4BA /* DocumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46566D6E2CEB355A0037F4BA /* DocumentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		46566D612CEB2BAB0037F4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46566D642CEB2BAB0037F4BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46566D662CEB2BAB0037F4BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46566D6C2CEB2D400037F4BA /* Answers.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Answers.md; sourceTree = "<group>"; };
+		46566D6D2CEB2D9F0037F4BA /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
+		46566D6E2CEB355A0037F4BA /* DocumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 		46566D4C2CEB2BAA0037F4BA = {
 			isa = PBXGroup;
 			children = (
+				46566D6D2CEB2D9F0037F4BA /* Notes.md */,
+				46566D6C2CEB2D400037F4BA /* Answers.md */,
 				46566D572CEB2BAA0037F4BA /* Document App */,
 				46566D562CEB2BAA0037F4BA /* Products */,
 			);
@@ -60,6 +66,7 @@
 				46566D5A2CEB2BAA0037F4BA /* SceneDelegate.swift */,
 				46566D5C2CEB2BAA0037F4BA /* ViewController.swift */,
 				46566D5E2CEB2BAA0037F4BA /* Main.storyboard */,
+				46566D6E2CEB355A0037F4BA /* DocumentTableViewController.swift */,
 				46566D612CEB2BAB0037F4BA /* Assets.xcassets */,
 				46566D632CEB2BAB0037F4BA /* LaunchScreen.storyboard */,
 				46566D662CEB2BAB0037F4BA /* Info.plist */,
@@ -140,6 +147,7 @@
 			files = (
 				46566D5D2CEB2BAA0037F4BA /* ViewController.swift in Sources */,
 				46566D592CEB2BAA0037F4BA /* AppDelegate.swift in Sources */,
+				46566D6F2CEB355A0037F4BA /* DocumentTableViewController.swift in Sources */,
 				46566D5B2CEB2BAA0037F4BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
