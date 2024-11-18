@@ -56,9 +56,19 @@ dequeueReusableCell améliore les performances en réutilisant les cellules déj
 ### Ce que nous venons de faire et le rôle du NavigationController
 En ajoutant un NavigationController, nous avons structuré notre application pour gérer la navigation entre plusieurs écrans (ou pages). Le NavigationController agit comme un conteneur qui organise et présente les ViewControllers dans une hiérarchie (appelée pile de navigation). Chaque écran est poussé ou retiré de cette pile lorsque l'utilisateur navigue dans l'application, ce qui permet une navigation fluide et cohérente. Cela inclut la gestion automatique de la NavigationBar, des transitions entre les écrans, et parfois d'une barre d'outils.
 
-#### Différence entre la NavigationBar et le NavigationController
+### Différence entre la NavigationBar et le NavigationController
 La NavigationBar est une partie visible (la barre en haut de l'écran) fournie par le NavigationController. Elle affiche le titre de l'écran courant et peut contenir des boutons (comme "Retour", "Ajouter", ou "Modifier"). En revanche, le NavigationController est une structure plus large, qui englobe la logique de navigation elle-même, y compris la gestion de la pile de ViewControllers et des animations de transition.
 
+
+## 6- Exercice 1
+
+### Qu’est-ce qu’un Segue et à quoi il sert ?
+Un Segue est un mécanisme utilisé dans les Storyboards d'iOS pour gérer la transition visuelle et logique entre deux écrans, appelés ViewControllers. Il permet non seulement de passer d'un écran à l'autre en réponse à une interaction utilisateur, mais aussi de transmettre des données entre les ViewControllers à l'aide de la méthode prepare(for segue:sender:). Les Segues offrent une manière visuelle et intuitive de concevoir les transitions et les flux de navigation dans une application.
+
+## 6- Exercice 2
+
+### Qu’est-ce qu’une constraint ? À quoi sert-elle ? Quel est le lien avec AutoLayout ?
+Une constraint est une règle qui détermine la position, la taille ou la relation d’un élément d’interface utilisateur par rapport à d’autres éléments ou à son conteneur. Elle sert à organiser l’affichage de manière précise et à garantir une mise en page cohérente, quel que soit l’appareil ou l’orientation. Les constraints sont utilisées par AutoLayout, le système d’iOS qui calcule automatiquement les positions et dimensions des composants pour rendre l’interface responsive et adaptée à différentes tailles d’écran.
 
 
 
