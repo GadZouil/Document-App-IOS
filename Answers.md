@@ -46,9 +46,18 @@ Cela ajoute ou enlève automatiquement des // au début des lignes sélectionné
 
 Une propriété statique appartient à la classe ou structure elle-même, et non à ses instances. Elle est utile pour partager des données globales, garantir l'unicité (comme un Singleton), ou stocker des valeurs constantes accessibles sans créer d'objet. Cela simplifie le code, économise la mémoire et permet un accès direct aux ressources ou configurations communes.
 
+## 2- Exercice 2
+
+dequeueReusableCell améliore les performances en réutilisant les cellules déjà créées, plutôt que d'en générer de nouvelles à chaque fois. Cela réduit la consommation de mémoire, accélère le traitement, et assure une fluidité optimale, même pour de longues listes, en ne gardant en mémoire que les cellules visibles à l'écran et un petit buffer.
 
 
+## 4- Exercice 1
 
+### Ce que nous venons de faire et le rôle du NavigationController
+En ajoutant un NavigationController, nous avons structuré notre application pour gérer la navigation entre plusieurs écrans (ou pages). Le NavigationController agit comme un conteneur qui organise et présente les ViewControllers dans une hiérarchie (appelée pile de navigation). Chaque écran est poussé ou retiré de cette pile lorsque l'utilisateur navigue dans l'application, ce qui permet une navigation fluide et cohérente. Cela inclut la gestion automatique de la NavigationBar, des transitions entre les écrans, et parfois d'une barre d'outils.
+
+#### Différence entre la NavigationBar et le NavigationController
+La NavigationBar est une partie visible (la barre en haut de l'écran) fournie par le NavigationController. Elle affiche le titre de l'écran courant et peut contenir des boutons (comme "Retour", "Ajouter", ou "Modifier"). En revanche, le NavigationController est une structure plus large, qui englobe la logique de navigation elle-même, y compris la gestion de la pile de ViewControllers et des animations de transition.
 
 
 

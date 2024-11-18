@@ -6,6 +6,16 @@
 //
 
 import UIKit
+import Foundation
+
+extension Int {
+    func formattedSize() -> String {
+        let formatter = ByteCountFormatter()
+        formatter.allowedUnits = [.useKB, .useMB, .useGB] // Définit les unités
+        formatter.countStyle = .file // Style adapté aux fichiers
+        return formatter.string(fromByteCount: Int64(self)) // Convertit en format lisible
+    }
+}
 
 class DocumentTableViewController: UITableViewController {
 
@@ -23,23 +33,28 @@ class DocumentTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return DocumentFile.testDocumentFiles.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        // Défile une cellule réutilisable
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentCell", for: indexPath)
+        
+        // Récupère le document correspondant
+        let document = DocumentFile.testDocumentFiles[indexPath.row]
+        
+        // Configure la cellule
+        cell.textLabel?.text = document.title
+        cell.detailTextLabel?.text = "Taille : \(document.size.formattedSize()) - Type : \(document.type)"
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -95,18 +110,20 @@ class DocumentTableViewController: UITableViewController {
 
         // Liste de test statique
         static let testDocumentFiles: [DocumentFile] = [
-            DocumentFile(title: "Document 1", size: 100, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
-            DocumentFile(title: "Document 2", size: 200, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
-            DocumentFile(title: "Document 3", size: 300, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
-            DocumentFile(title: "Document 4", size: 400, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
-            DocumentFile(title: "Document 5", size: 500, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
-            DocumentFile(title: "Document 6", size: 600, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
-            DocumentFile(title: "Document 7", size: 700, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
-            DocumentFile(title: "Document 8", size: 800, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
-            DocumentFile(title: "Document 9", size: 900, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
-            DocumentFile(title: "Document 10", size: 1000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain")
+            DocumentFile(title: "Document 1", size: 100000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
+            DocumentFile(title: "Document 2", size: 200000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
+            DocumentFile(title: "Document 3", size: 300000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
+            DocumentFile(title: "Document 4", size: 400000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
+            DocumentFile(title: "Document 5", size: 500000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
+            DocumentFile(title: "Document 6", size: 600000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
+            DocumentFile(title: "Document 7", size: 700000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
+            DocumentFile(title: "Document 8", size: 800000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
+            DocumentFile(title: "Document 9", size: 900000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain"),
+            DocumentFile(title: "Document 10", size: 1000000, imageName: nil, url: URL(string: "https://www.apple.com")!, type: "text/plain")
         ]
     }
+
+
 
     
 }
