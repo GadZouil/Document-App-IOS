@@ -32,17 +32,25 @@ extension DocumentTableViewController: QLPreviewControllerDataSource {
     }
 }
 
+extension DocumentTableViewController: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let selectedFileUrl = urls.first else { return }
+        copyFileToDocumentsDirectory(fromUrl: selectedFileUrl)
+        reloadDocumentsList() // Fonction pour recharger la liste des documents
+    }
+}
+
 
 class DocumentTableViewController: UITableViewController {
 
     var documents: [DocumentFile] = []
     
     override func viewDidLoad() {
-//        super.viewDidLoad()
-        
         
         super.viewDidLoad()
-        self.title = "Documents"
+        self.title = "Liste de Documents"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDocument))
+        documents = listFileInBundle() + listFilesInDocumentsDirectory()
         
         // Charge les fichiers du bundle
         documents = listFileInBundle()
@@ -65,6 +73,47 @@ class DocumentTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return documents.count
+    }
+    
+    @objc func addDocument() {
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.item], asCopy: true)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker, animated: true, completion: nil)
+    }
+
+    func copyFileToDocumentsDirectory(fromUrl url: URL) {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let destinationUrl = documentsDirectory.appendingPathComponent(url.lastPathComponent)
+        
+        do {
+            try FileManager.default.copyItem(at: url, to: destinationUrl)
+        } catch {
+            print("Erreur lors de la copie : \(error)")
+        }
+    }
+    
+    func listFilesInDocumentsDirectory() -> [DocumentFile] {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileUrls = try! FileManager.default.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil)
+        
+        var documentList = [DocumentFile]()
+        for fileUrl in fileUrls {
+            let resourcesValues = try! fileUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
+            documentList.append(DocumentFile(
+                title: resourcesValues.name!,
+                size: resourcesValues.fileSize ?? 0,
+                imageName: nil, // Pas forcément une image
+                url: fileUrl,
+                type: resourcesValues.contentType?.description ?? "unknown"
+            ))
+        }
+        return documentList
+    }
+
+    func reloadDocumentsList() {
+        documents = listFileInBundle() + listFilesInDocumentsDirectory()
+        tableView.reloadData()
     }
 
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -223,7 +272,8 @@ class DocumentTableViewController: UITableViewController {
         // Parcourt tous les éléments trouvés dans le chemin
         for item in items {
             // Exclut les fichiers inutiles (.DS_Store) et sélectionne uniquement les fichiers ayant l'extension .jpg
-            if !item.hasSuffix("DS_Store") && item.hasSuffix(".jpg") {
+            if !item.hasSuffix("DS_Store") {
+//                && item.hasSuffix(".jpg")
                 
                 // Crée une URL pour accéder au fichier actuel
                 let currentUrl = URL(fileURLWithPath: path + "/" + item)

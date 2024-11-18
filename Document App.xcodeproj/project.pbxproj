@@ -20,6 +20,9 @@
 		46566D7C2CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D752CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg */; };
 		46566D7F2CEB6A550037F4BA /* img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46566D7E2CEB6A550037F4BA /* img.jpg */; };
 		46566D812CEB6BEF0037F4BA /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46566D802CEB6BEF0037F4BA /* DocumentViewController.swift */; };
+		46566D832CEB82B70037F4BA /* boubou.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 46566D822CEB82B70037F4BA /* boubou.rtf */; };
+		46566D892CEB83D60037F4BA /* macostexte.txt in Resources */ = {isa = PBXBuildFile; fileRef = 46566D882CEB83D60037F4BA /* macostexte.txt */; };
+		46566D8B2CEB843F0037F4BA /* bidai.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 46566D8A2CEB843F0037F4BA /* bidai.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		46566D752CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 49736d018764707dbc02c34ceb1c72b6.jpg; sourceTree = "<group>"; };
 		46566D7E2CEB6A550037F4BA /* img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpg; sourceTree = "<group>"; };
 		46566D802CEB6BEF0037F4BA /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		46566D822CEB82B70037F4BA /* boubou.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = boubou.rtf; sourceTree = "<group>"; };
+		46566D882CEB83D60037F4BA /* macostexte.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = macostexte.txt; sourceTree = "<group>"; };
+		46566D8A2CEB843F0037F4BA /* bidai.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = bidai.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,8 @@
 		46566D572CEB2BAA0037F4BA /* Document App */ = {
 			isa = PBXGroup;
 			children = (
+				46566D8A2CEB843F0037F4BA /* bidai.pdf */,
+				46566D882CEB83D60037F4BA /* macostexte.txt */,
 				46566D7E2CEB6A550037F4BA /* img.jpg */,
 				46566D722CEB4D5B0037F4BA /* 898b29a34ea47362b0d3a1b260d9725b.jpg */,
 				46566D752CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg */,
@@ -88,6 +96,7 @@
 				46566D632CEB2BAB0037F4BA /* LaunchScreen.storyboard */,
 				46566D662CEB2BAB0037F4BA /* Info.plist */,
 				46566D802CEB6BEF0037F4BA /* DocumentViewController.swift */,
+				46566D822CEB82B70037F4BA /* boubou.rtf */,
 			);
 			path = "Document App";
 			sourceTree = "<group>";
@@ -151,9 +160,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				46566D7F2CEB6A550037F4BA /* img.jpg in Resources */,
+				46566D832CEB82B70037F4BA /* boubou.rtf in Resources */,
 				46566D652CEB2BAB0037F4BA /* LaunchScreen.storyboard in Resources */,
 				46566D7C2CEB4D5B0037F4BA /* 49736d018764707dbc02c34ceb1c72b6.jpg in Resources */,
 				46566D622CEB2BAB0037F4BA /* Assets.xcassets in Resources */,
+				46566D892CEB83D60037F4BA /* macostexte.txt in Resources */,
+				46566D8B2CEB843F0037F4BA /* bidai.pdf in Resources */,
 				46566D792CEB4D5B0037F4BA /* 898b29a34ea47362b0d3a1b260d9725b.jpg in Resources */,
 				46566D782CEB4D5B0037F4BA /* e339cb82664962b3eba958d299700976.jpg in Resources */,
 				46566D602CEB2BAA0037F4BA /* Main.storyboard in Resources */,

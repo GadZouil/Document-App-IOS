@@ -77,4 +77,31 @@ Une constraint est une règle qui détermine la position, la taille ou la relati
 Le disclosureIndicator est un petit chevron affiché à droite des cellules, indiquant à l’utilisateur qu’en sélectionnant une cellule, il accédera à une vue de détail. Cela améliore l’expérience utilisateur en respectant les directives d'Apple en matière de design (Human Interface Guidelines). Il est particulièrement pertinent pour des actions de navigation, comme ici où l’on ouvre un document. Cela rend l'interface plus intuitive et cohérente avec les standards d’iOS.
 
 
+## 10- Questions
+
+### Qu’est-ce qu’un #selector ?
+Un #selector est une référence utilisée pour indiquer qu’une méthode doit être appelée en réponse à un événement. Il connecte des actions aux composants UI comme des boutons ou des gestes.
+
+### Que représente .add dans notre appel ?
+.add est une option prédéfinie de type UIBarButtonItem.SystemItem. Elle affiche un symbole "+" qui est intuitif pour les utilisateurs lorsqu’il s’agit d’ajouter du contenu.
+
+### Pourquoi Xcode demande d’utiliser @objc ?
+Le mot-clé @objc est requis car les sélecteurs utilisent des mécanismes hérités d’Objective-C. Il indique que la méthode ciblée peut être appelée par le runtime Objective-C, nécessaire pour les actions associées à des sélecteurs.
+
+### Peut-on ajouter plusieurs boutons dans la barre de navigation ?
+Oui, on peut ajouter plusieurs boutons. Il suffit de fournir un tableau de UIBarButtonItem :
+navigationItem.rightBarButtonItems = [
+    UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDocument)),
+    UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share))
+]
+
+### À quoi sert la fonction defer ?
+defer est utilisé pour exécuter du code juste avant de quitter le scope courant, qu’il s’agisse d’un succès ou d’une erreur. C’est utile pour effectuer des opérations de nettoyage, comme fermer un fichier ou libérer une ressource.
+
+
+
+
+
+
+
 
