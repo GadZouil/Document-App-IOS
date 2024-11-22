@@ -97,12 +97,22 @@ class DocumentTableViewController: UITableViewController {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let destinationUrl = documentsDirectory.appendingPathComponent(url.lastPathComponent)
         
+        // Vérifiez si le fichier existe déjà
+        if FileManager.default.fileExists(atPath: destinationUrl.path) {
+            print("Fichier déjà présent : \(destinationUrl)")
+            return
+        }
+        
         do {
+            // Copie le fichier source vers la destination
             try FileManager.default.copyItem(at: url, to: destinationUrl)
+            print("Fichier copié : \(destinationUrl)")
         } catch {
-            print("Erreur lors de la copie : \(error)")
+            print("Erreur lors de la copie : \(error)")
         }
     }
+
+
     
     func listFilesInDocumentsDirectory() -> [DocumentFile] {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -111,16 +121,23 @@ class DocumentTableViewController: UITableViewController {
         var documentList = [DocumentFile]()
         for fileUrl in fileUrls {
             let resourcesValues = try! fileUrl.resourceValues(forKeys: [.contentTypeKey, .nameKey, .fileSizeKey])
+            
+            // Ajoutez une vérification pour éviter les fichiers non valides ou cachés
+            guard let contentType = resourcesValues.contentType else {
+                continue
+            }
+            
             documentList.append(DocumentFile(
-                title: resourcesValues.name!,
+                title: resourcesValues.name ?? fileUrl.lastPathComponent,
                 size: resourcesValues.fileSize ?? 0,
-                imageName: nil, // Pas forcément une image
+                imageName: nil, // N'est pas utilisé pour les non-images
                 url: fileUrl,
-                type: resourcesValues.contentType?.description ?? "unknown"
+                type: contentType.description
             ))
         }
         return documentList
     }
+
 
 //    func reloadDocumentsList() {
 //        documents = listFileInBundle() + listFilesInDocumentsDirectory()
@@ -128,9 +145,12 @@ class DocumentTableViewController: UITableViewController {
 //    }
     
     func reloadDocumentsList() {
+        bundleFiles = listFileInBundle() // Recharger les fichiers du bundle si nécessaire
         importedFiles = listFilesInDocumentsDirectory()
+        documents = importedFiles + bundleFiles // Recombine les fichiers pour une liste unique
         tableView.reloadData()
     }
+
 
 
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -248,12 +268,13 @@ class DocumentTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Récupère le document sélectionné
-        let file = documents[indexPath.row]
-        
+        // Sélectionne la source de données en fonction de la section
+        let selectedDocument = indexPath.section == 0 ? importedFiles[indexPath.row] : bundleFiles[indexPath.row]
+
         // Instancie et configure le QLPreviewController
-        instantiateQLPreviewController(withUrl: file.url)
+        instantiateQLPreviewController(withUrl: selectedDocument.url)
     }
+
 
     func instantiateQLPreviewController(withUrl url: URL) {
         // Crée une instance de QLPreviewController
